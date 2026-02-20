@@ -356,12 +356,7 @@ function cardHtml(d){
   const tags = (d.tags || []).join(", ");
   const displayPort = d.port ? `:${d.port}` : "";
   const displayPath = d.path ? (d.path.startsWith("/") ? d.path : `/${d.path}`) : "";
-  const sub = `${d.ip}${displayPort}${displayPath}`;
-
-  const badges = (d.badges || []).map(b=>{
-    const tone = b.tone || "";
-    return `<span class="badge ${tone}">${escapeHtml(b.text)}</span>`;
-  }).join("");
+  const sub = `${d.ip}${displayPort}${displayPath}`
 
   return `
     <a class="card" href="${escapeAttr(url)}" target="_blank" rel="noopener"
