@@ -1,47 +1,99 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Links</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Internal Device Links</title>
   <style>
     body {
       font-family: Arial, sans-serif;
       background-color: #111;
-      color: white;
-      text-align: center;
-      padding: 40px;
+      color: #eee;
+      padding: 30px;
     }
 
     h1 {
       margin-bottom: 40px;
     }
 
+    h2 {
+      margin-top: 30px;
+      border-bottom: 2px solid #444;
+      padding-bottom: 5px;
+    }
+
+    ul {
+      list-style-type: none;
+      padding-left: 0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
     a {
-      display: block;
-      margin: 15px auto;
-      padding: 15px;
-      width: 250px;
       text-decoration: none;
-      color: white;
-      background: #1f1f1f;
-      border-radius: 8px;
-      transition: 0.3s;
+      color: #4da6ff;
+      font-size: 16px;
     }
 
     a:hover {
-      background: #0a66c2;
+      color: #ffffff;
     }
   </style>
 </head>
 
 <body>
 
-<h1>My Links</h1>
+<h1>Internal Network Dashboard</h1>
 
-<a href="https://google.com" target="_blank">Google</a>
-<a href="https://notion.so" target="_blank">Notion</a>
-<a href="https://drive.trustitco.com" target="_blank">Drive</a>
+<div id="content"></div>
+
+<script>
+const sections = {
+  "Proxmox": [
+    { name: "pm1", ip: "192.168.1.10" },
+    { name: "pm4", ip: "192.168.1.11" },
+    { name: "Proxmox Backup Server", ip: "192.168.1.12" }
+  ],
+
+  "Smarthome": [
+    { name: "Home Assistant", ip: "192.168.1.20" },
+    { name: "Shelly EM", ip: "192.168.1.21" },
+    { name: "Reolink NVR", ip: "192.168.1.22" }
+  ],
+
+  "Other": [
+    { name: "Synology NAS", ip: "192.168.1.30" },
+    { name: "Switch", ip: "192.168.1.2" },
+    { name: "Printer", ip: "192.168.1.40" }
+  ]
+};
+
+const container = document.getElementById("content");
+
+for (const section in sections) {
+
+  const h2 = document.createElement("h2");
+  h2.textContent = section;
+  container.appendChild(h2);
+
+  const ul = document.createElement("ul");
+
+  sections[section].forEach(device => {
+    const li = document.createElement("li");
+    const a = document.createElement("a");
+
+    a.href = "http://" + device.ip;
+    a.textContent = device.name + " (" + device.ip + ")";
+    a.target = "_blank";
+
+    li.appendChild(a);
+    ul.appendChild(li);
+  });
+
+  container.appendChild(ul);
+}
+</script>
 
 </body>
 </html>
-
