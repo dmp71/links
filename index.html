@@ -394,9 +394,25 @@ function render(){
     const wrap = document.createElement("section");
     wrap.className = "section";
 
-    const head = document.createElement("div");
-    head.className = "section-head";
-    head.innerHTML = `<h2>${escapeHtml(section.title)}</h2><div class="count">${items.length} link(s)</div>`;
+const collapsed = isCollapsed(section.title);
+
+const head = document.createElement("div");
+head.className = "section-head";
+
+head.innerHTML = `
+  <div class="section-left">
+    <h2>${escapeHtml(section.title)}</h2>
+  </div>
+  <div class="section-actions">
+    <button class="btn" title="Collapse/Expand">
+      ${collapsed ? "Expand ▸" : "Collapse ▾"}
+    </button>
+  </div>
+`;
+
+// Button ONLY toggles (Option B)
+head.querySelector("button").onclick = () => toggleCollapsed(section.title);
+;
 
     const grid = document.createElement("div");
     grid.className = "grid";
