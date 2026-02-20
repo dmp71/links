@@ -317,9 +317,8 @@ function matches(device, sectionTitle, query){
     device.name,
     device.ip,
     device.proto,
-    device.port,
-    device.path,
-  ].map(x=>normalize(x)).join(" ");
+    device.port
+  ].join(" ").toLowerCase();
 
   return hay.includes(query);
 }
