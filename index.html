@@ -319,7 +319,6 @@ function matches(device, sectionTitle, query){
     device.proto,
     device.port,
     device.path,
-    ...(device.tags || []),
     ...((device.badges || []).map(b=>b.text))
   ].map(x=>normalize(x)).join(" ");
 
