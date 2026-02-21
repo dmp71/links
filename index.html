@@ -351,11 +351,19 @@ function sortItems(items){
 }
 
 function cardHtml(d){
+let url;
+let sub;
+
+if (d.url) {
+  url = d.url;
+  sub = ""; // nothing displayed under the name
+} else {
   const proto = (d.proto || "http").replace("://","");
   const port = d.port ? `:${d.port}` : "";
   const path = d.path ? (d.path.startsWith("/") ? d.path : `/${d.path}`) : "";
-  const url = `${proto}://${d.ip}${port}${path}`;
-  const sub = `${d.ip}${port}`;
+  url = `${proto}://${d.ip}${port}${path}`;
+  sub = `${d.ip}${port}`;
+}
 
   return `
     <a class="card" href="${url}" target="_blank" rel="noopener">
