@@ -38,6 +38,11 @@
       justify-content:space-between;
       flex-wrap:wrap;
     }
+    .footer-time{
+  margin-top:6px;
+  font-size:11px;
+  color: var(--muted);
+}
     .title-wrap h1{
       margin:0;
       font-size: 26px;
@@ -238,6 +243,7 @@
        ✏️ Edit This Homepage
     </a>
   </div>
+  <div id="lastSaved" class="footer-time"></div>
 </footer>
 
 
@@ -413,6 +419,23 @@ q.addEventListener("input", render);
 
 renderFilters();
 render();
+  (function(){
+  const raw = document.lastModified;
+  const dt = new Date(raw);
+
+  const formatted = dt.toLocaleString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+
+  document.getElementById("lastSaved").textContent =
+    "Last updated: " + formatted;
+})();
+
 </script>
 </body>
 </html>
