@@ -370,9 +370,11 @@ if (d.url) {
       <div class="top">
         <div>
           <div class="name">${d.name}</div>
-          <div class="meta">
-            <span class="ip">${sub}</span>
-          </div>
+${sub ? `
+<div class="meta">
+  <span class="ip">${sub}</span>
+</div>` : ""}
+
         </div>
         <div class="icon">🧊</div>
       </div>
