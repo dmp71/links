@@ -1,1 +1,470 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>My Work Links</title>
 
+  <style>
+    :root{
+  --bg:#081423;
+  --card:#182436;
+      --card2:#0f1624;
+  --text:#dbe3ec;
+  --muted:#8ea1b8;
+  --border:#22344a;
+  --accent:#2ea3f2;
+      --accent2:#34d399;
+      --danger:#fb7185;
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius: 16px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Apple Color Emoji","Segoe UI Emoji";
+      background: radial-gradient(1200px 600px at 20% 0%, rgba(96,165,250,.18), transparent 60%),
+                  radial-gradient(1000px 500px at 80% 10%, rgba(52,211,153,.14), transparent 55%),
+                  var(--bg);
+      color:var(--text);
+    }
+    header{
+      max-width: 1100px;
+      margin: 28px auto 18px;
+      padding: 0 18px;
+      display:flex;
+      gap:14px;
+      align-items:flex-end;
+      justify-content:space-between;
+      flex-wrap:wrap;
+    }
+    .footer-time{
+  margin-top:6px;
+  font-size:11px;
+  color: var(--muted);
+}
+    .title-wrap h1{
+      margin:0;
+      font-size: 26px;
+      letter-spacing:.2px;
+    }
+    .subtitle{
+      margin:6px 0 0;
+      color:var(--muted);
+      font-size: 14px;
+    }
+    .controls{
+      display:flex;
+      gap:10px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .search{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      background: rgba(18,24,38,.75);
+      border:1px solid var(--border);
+      border-radius: 999px;
+      padding: 10px 14px;
+      min-width: 140px;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .search input{
+      width:100%;
+      border:0;
+      outline:0;
+      background:transparent;
+      color:var(--text);
+      font-size: 12px;
+    }
+    .pill{
+      border:1px solid var(--border);
+      background: rgba(18,24,38,.75);
+      font-family: inherit;
+      color:var(--accent);
+      padding:10px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      cursor:pointer;
+      user-select:none;
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(10px);
+    }
+    .pill.active{
+      color: var(--text);
+      border-color: rgba(96,165,250,.55);
+      box-shadow: 0 0 0 3px rgba(96,165,250,.15), var(--shadow);
+    }
+
+    main{
+      max-width: 1100px;
+      margin: 0 auto 60px;
+      padding: 0 18px;
+      display:flex;
+      flex-direction:column;
+      gap: 18px;
+    }
+
+    .section{
+      border:1px solid var(--border);
+      border-radius: var(--radius);
+      background: rgba(18,24,38,.35);
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .section-head{
+      display:flex;
+      align-items:baseline;
+      justify-content:space-between;
+      gap:12px;
+      padding: 14px 16px;
+      border-bottom:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(18,24,38,.8), rgba(18,24,38,.35));
+    }
+    .section-head h2{
+      margin:0;
+      font-size: 16px;
+      letter-spacing:.25px;
+      color:#2ea3f2;
+    }
+    .count{
+      color:var(--muted);
+      font-size: 12px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+      gap: 12px;
+      padding: 14px;
+    }
+
+    a.card{
+      text-decoration:none;
+      color:inherit;
+      border:1px solid var(--border);
+      border-radius: 14px;
+      background: linear-gradient(180deg, rgba(15,22,36,.9), rgba(18,24,38,.55));
+      padding: 4px 6px;
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+      transition: transform .12s ease, border-color .12s ease, background .12s ease;
+      min-height: 54px;
+      position:relative;
+      overflow:hidden;
+    }
+    a.card:hover{
+      transform: translateY(-2px);
+      border-color: rgba(96,165,250,.55);
+      background: linear-gradient(180deg, rgba(15,22,36,.95), rgba(18,24,38,.75));
+    }
+.top{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:8px;
+}
+
+.name{
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0;
+  line-height: 1.05;
+  margin-bottom: 2px;
+}
+.meta{
+  display:flex;
+  flex-wrap:nowrap;
+  gap:4px;
+  align-items:center;
+  color:var(--muted);
+  font-size: 10px;
+  line-height:1.05;
+  margin-top:1px;
+}
+
+    .ip{
+      font-size:11px;
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono";
+      opacity:.95;
+    }
+    .icon{
+      font-size: 14px;
+      line-height: 1;
+      opacity: .95;
+    }
+
+    footer{
+      max-width:1100px;
+      margin: 16px auto 30px;
+      padding: 0 18px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .muted-note{
+      margin-top: 8px;
+      opacity:.9;
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+
+    <div class="controls">
+      <div class="search" title="Search name, IP, tags, section">
+        🔎 <input id="q" placeholder="       " />
+      </div>
+      <div id="filters"></div>
+    </div>
+  </header>
+
+  <main id="app"></main>
+
+<footer>
+
+
+  <div style="margin-top:12px;">
+    <a href=https://github.com/dmp71/links/edit/main/index.html
+       target="_blank"
+       style="
+         display:inline-block;
+         padding:10px 14px;
+         border-radius:10px;
+         text-decoration:none;
+         background:#1f2a3d;
+         border:1px solid #2e3c55;
+         color:#60a5fa;
+         font-size:13px;
+       ">
+       ✏️ Edit This Homepage
+    </a>
+  </div>
+  <div id="lastSaved" class="footer-time"></div>
+</footer>
+
+
+<script>
+/* =========================
+   DATA (EDIT THIS)
+   =========================
+   Each device supports:
+   - name (required)
+   - ip (required)
+   - proto: "http" or "https" (optional, default "http")
+   - port: number (optional)
+   - path: string like "/ui" (optional)
+   - icon: emoji or short text (optional)
+   - tags: ["pve","storage"] (optional)
+   - badges: [{text:"prod", tone:"good|warn|down"}] (optional)
+*/
+
+const SECTIONS = [
+  {
+    title: "Servers",
+    items: [
+      { name:"Home Assistant", ip:"192.168.0.135", proto:"http", port:8123 },
+      { name:"Proxmox1", ip:"192.168.0.11", proto:"http", port:8006 },
+      { name:"Proxmox2", ip:"192.168.0.12", proto:"http", port:8006 },
+      { name:"Proxmox3", ip:"192.168.0.13", proto:"http", port:8006 },
+      { name:"Proxmox4", ip:"192.168.0.14", proto:"http", port:8006 },
+      { name:"BigDog Medical", ip:"192.168.0.165", proto:"http", port:5678 },
+      { name:"Homebox", ip:"192.168.0.243", proto:"http", port:3100 },
+    ]
+  },
+    {
+    title: "Cameras",
+    items: [
+      { name:"Grill", ip:"192.168.0.57", proto:"https", port:443 },
+      { name:"Back", ip:"192.168.0.130", proto:"https", port:443 },
+      { name:"Basement", ip:"192.168.0.164", proto:"https", port:443 },
+      { name:"Patio", ip:"192.168.0.185", proto:"https", port:443 },
+      { name:"Front", ip:"192.168.0.176", proto:"https", port:443 },
+      { name:"Backyard", ip:"192.168.0.75", proto:"https", port:443 },
+      { name:"East Drive", ip:"192.168.0.140", proto:"https", port:443 },
+      { name:"Workbench", ip:"192.168.0.41", proto:"https", port:443 },
+    ]
+  },
+  {
+    title: "Smarthome",
+    items: [
+      { name:"Garage Lights", ip:"192.168.0.218", proto:"http" },
+      { name:"Devices", url:"https://victorious-crafter-ede.notion.site/Device-Inventory-291e4e0fadb780008491d32f41163851" },
+      { name:"MQTT", ip:"192.168.1.22", proto:"http", port:1883 },
+    ]
+  },
+  {
+    title: "Network",
+    items: [
+      { name:"Synology NAS", ip:"192.168.0.48", proto:"http", port:5000},
+      { name:"OPNsense", ip:"192.168.0.2", proto:"http" },
+      { name:"Router", ip:"192.168.0.1", proto:"http" },
+      { name:"Ubi Key", ip:"192.168.0.61", proto:"http" },
+      { name:"NPM", ip:"192.168.0.189", proto:"http", port:81 },
+    ]
+  }
+];
+
+/* =========================
+   APP LOGIC (DON'T TOUCH)
+   ========================= */
+
+function buildUrl(d){
+  const proto = (d.proto || "http").replace("://","");
+  const port = d.port ? `:${d.port}` : "";
+  const path = d.path ? (d.path.startsWith("/") ? d.path : `/${d.path}`) : "";
+  return `${proto}://${d.ip}${port}${path}`;
+}
+
+function normalize(str){ return (str || "").toString().toLowerCase().trim(); }
+
+function uniq(arr){ return [...new Set(arr)]; }
+
+const app = document.getElementById("app");
+const q = document.getElementById("q");
+const filters = document.getElementById("filters");
+
+const allSections = SECTIONS.map(s => s.title);
+let activeSection = "All";
+
+function renderFilters(){
+  const names = ["All", ...allSections];
+  filters.innerHTML = "";
+  names.forEach(name=>{
+    const b = document.createElement("button");
+    b.className = "pill" + (name === activeSection ? " active" : "");
+    b.textContent = name;
+    b.onclick = () => { activeSection = name; render(); };
+    filters.appendChild(b);
+  });
+}
+
+function matches(device, sectionTitle, query){
+  if(activeSection !== "All" && sectionTitle !== activeSection) return false;
+  if(!query) return true;
+
+  const hay = [
+    sectionTitle,
+    device.name,
+    device.ip,
+    device.proto,
+    device.port
+  ].join(" ").toLowerCase();
+
+  return hay.includes(query);
+}
+
+function sortItems(items){
+  return items.slice().sort((a,b)=>{
+    const an = normalize(a.name);
+    const bn = normalize(b.name);
+    return an.localeCompare(bn);
+  });
+}
+
+function cardHtml(d){
+let url;
+let sub;
+
+if (d.url) {
+  url = d.url;
+  sub = ""; // nothing displayed under the name
+} else {
+  const proto = (d.proto || "http").replace("://","");
+  const port = d.port ? `:${d.port}` : "";
+  const path = d.path ? (d.path.startsWith("/") ? d.path : `/${d.path}`) : "";
+  url = `${proto}://${d.ip}${port}${path}`;
+  sub = `${d.ip}${port}`;
+}
+
+  return `
+    <a class="card" href="${url}" target="_blank" rel="noopener">
+      <div class="top">
+        <div>
+          <div class="name">${d.name}</div>
+${sub ? `
+<div class="meta">
+  <span class="ip">${sub}</span>
+</div>` : ""}
+
+        </div>
+        <div class="icon">🧊</div>
+      </div>
+    </a>`;
+}
+
+
+function render(){
+  const query = normalize(q.value);
+  app.innerHTML = "";
+
+  SECTIONS.forEach(section=>{
+    const items = sortItems(section.items)
+      .filter(d => matches(d, section.title, query));
+
+    if(items.length === 0) return;
+
+    const wrap = document.createElement("section");
+    wrap.className = "section";
+
+    const head = document.createElement("div");
+    head.className = "section-head";
+    head.innerHTML = `<h2>${escapeHtml(section.title)}</h2>`;
+
+    const grid = document.createElement("div");
+    grid.className = "grid";
+    grid.innerHTML = items.map(cardHtml).join("");
+
+    wrap.appendChild(head);
+    wrap.appendChild(grid);
+    app.appendChild(wrap);
+  });
+
+  if(app.innerHTML.trim() === ""){
+    const empty = document.createElement("div");
+    empty.style.color = "var(--muted)";
+    empty.style.padding = "18px";
+    empty.textContent = "No matches. Try a different search.";
+    app.appendChild(empty);
+  }
+
+  renderFilters(); // keeps active highlight correct
+}
+
+function escapeHtml(s){
+  return (s ?? "").toString()
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&#039;");
+}
+function escapeAttr(s){ return escapeHtml(s); }
+
+q.addEventListener("input", render);
+
+renderFilters();
+render();
+  (function(){
+  const raw = document.lastModified;
+  const dt = new Date(raw);
+
+  const formatted = dt.toLocaleString("en-US", {
+    year: "numeric",
+    month: "short",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+    second: "2-digit"
+  });
+
+  document.getElementById("lastSaved").textContent =
+    "Last updated: " + formatted;
+})();
+
+</script>
+</body>
+</html>
